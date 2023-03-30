@@ -1,0 +1,22 @@
+{
+  "name": "tests",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start:client": "wait-on http://localhost:4000/invoices && cd ../client && npm start",
+    "start:api": "cd ../api && npm start",
+    "test": "wait-on http://localhost:3000 && mocha",
+    "start": "concurrently \"npm run start:api\" \"npm run start:client\" \"npm test\""
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "concurrently": "^8.0.1",
+    "mocha": "^10.2.0",
+    "wait-on": "^7.0.1"
+  },
+  "dependencies": {
+    "puppeteer": "^19.8.2"
+  }
+}
